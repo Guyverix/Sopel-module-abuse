@@ -1,0 +1,1 @@
+# Sopel-module-abuse
