@@ -5,13 +5,15 @@ The abuse file must be defined in the default.cfg file.
 Here is an example config entry.
 
 [abuse]
+
 abuse_text = /home/user/.sopel/abuse.txt
 
 
 ## Installation:
-copy the abuse.py file into your modules directory after editing the default.cfg file.
+Copy the abuse.py file into your modules directory after editing the default.cfg file.
 chown the file to whatever userid is running your sopel daemon
 and if necessary chmod 664 the abuse.py file to make sure that it can be read easily.
+
 The same goes for the abuse.txt file.  It should also be chmodded and chowned whereever
 you decide to put it.  It is important to note that there is the ability to add new
 abuse to the file from IRC, so there will need to be sufficient privileges given to the 
@@ -21,16 +23,20 @@ Reload sopel inside IRC and confirm that it picked up the changes by issuing
 .help abuse   * the period is the default trigger, yours may be different.
 
 ## Operation:
-In channel:
+### In channel:
 .abuse userid
+
 This will cause YOUR userid to abuse the victim
 
-In private to Sopel:
+### In private to Sopel:
 .abuse userid #channel
+
 This will cause a RANDOM userid to abuse the victim :)
 
 .add_abuse String of text
+
 This will append "String of text" to the end of the abuse file
+
 You must remember however that within "String of text" there is a variable VICTIM that 
 must be spelled correctly and exist for the abuse to make sense.  If you miss VICTIM 
 or miss-spell it, then the abuse will look kinda silly.
@@ -47,6 +53,7 @@ You falls over somebody.
 VICTIM falls over somebody.
 
 You must remember the acceptable sentence format:
+
 <somebody> string VICTIM string
 
 
@@ -70,8 +77,10 @@ to me not knowing better, not me attempting to be tricky.
 
 
 ## Creator Etc section:
-Created by: Chris Hubbard
-Created on: 02-02-2016
+* Created by: Chris Hubbard
+* Contact: guyverix@yahoo.com
+* Created on: 02-02-2016
+* Version: 0.1.0
 
 An abuse module is nothing new under the sun.  Likely I have been influenced by different ones 
 I have seen over the years.  I am sure that there are some that are more fully fleshed out
