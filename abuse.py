@@ -71,8 +71,13 @@ def abuse(bot, trigger):
     else:
       #bot.msg(trigger.nick, "DEBUG: I have no idea what channel to abuse the person on")
       #bot.msg(trigger.nick, "DEBUG: " + trigger.sender +" " + trigger.group(2))
-      channelDest=trigger.group(2).split()[1]
-      if channelDest.startswith('#'):
+      try:
+        channelDest=trigger.group(2).split()[1]
+      except IndexError, error:
+        return bot.msg(trigger.nick, 'Argument: ' + trigger.group(2) + " does not appear to have a parsable #channel in it")
+      if channelDest == '':
+        bot.msg(trigger.nick, "I was not able to find the #channel")
+      elif channelDest.startswith('#'):
         users = bot.privileges[channelDest]
         # bot.msg(trigger.nick, channelDest + " looks like a valid channel")
         victim = trigger.group(2).split()[0]
